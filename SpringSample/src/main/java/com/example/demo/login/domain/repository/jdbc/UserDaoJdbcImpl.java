@@ -72,9 +72,14 @@ public class UserDaoJdbcImpl implements UserDao {
 		return userList;
 	}
 
+	//userテーブル1件を更新
 	@Override
 	public int updateOne(User user) throws DataAccessException {
-		return 0;
+		int rowNumber = jdbc.update("UPDATE m_user" + " SET" + " password = ?,"
+				+ " user_name = ?," + " birthday = ?," + " age = ?," + " marriage = ?"
+				+ " WHERE user_id = ?" , user.getPassword(), user.getUserName(),
+				user.getBirthday(), user.getAge(), user.isMarriage(), user.getUserId());
+		return rowNumber;
 	}
 
 	@Override
