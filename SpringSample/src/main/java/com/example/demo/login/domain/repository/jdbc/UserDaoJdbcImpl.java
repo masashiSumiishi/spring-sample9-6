@@ -89,7 +89,11 @@ public class UserDaoJdbcImpl implements UserDao {
 		return rowNumber;
 	}
 
+	//SQL取得結果をサーバーにCSVで保存する
 	@Override
 	public void userCsvOut() throws DataAccessException {
+		String sql = "SELECT * FROM m_user";
+		UserRowCallbackHandler handler = new UserRowCallbackHandler();
+		jdbc.query(sql, handler);
 	}
 }
