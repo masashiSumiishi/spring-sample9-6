@@ -79,6 +79,10 @@ public class UserDaoJdbcImpl implements UserDao {
 				+ " user_name = ?," + " birthday = ?," + " age = ?," + " marriage = ?"
 				+ " WHERE user_id = ?" , user.getPassword(), user.getUserName(),
 				user.getBirthday(), user.getAge(), user.isMarriage(), user.getUserId());
+		//トランザクション確認のためわざとエラー
+		//if (rowNumber > 0) {
+			//throw new DataAccessException("トランザクションテスト") {};
+		//}
 		return rowNumber;
 	}
 
