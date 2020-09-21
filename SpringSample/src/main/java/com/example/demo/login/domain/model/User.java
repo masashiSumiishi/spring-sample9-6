@@ -14,4 +14,5 @@ public class User {
 	private int age;
 	private boolean marriage;
 	private String role;
+
 }
